@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "vitest": "^2.1.4"
+  },
+  "scripts": {
+  "test:unit": "vitest",
+  "test:api": "npx playwright test --project=API",
+  "test:ui": "npx playwright test --project=UI",
+  "test": "npm run test:unit && npm run test:api && npm run test:ui"
+}
+}
