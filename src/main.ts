@@ -4,15 +4,26 @@ async function main() {
   const calculator = new Calculator();
 
   console.log('Sum:', calculator.sum(1, 2, 3));
+
   console.log('Subduct:', calculator.subduct(10, 5));
+
   console.log('Multiply:', calculator.multiply(2, 3, 4));
+
   console.log('Divide:', calculator.divide(20, 4));
 
-  const sumFromFile = await calculator.sumFromFile('numbers.txt');
-  console.log('Sum from file:', sumFromFile);
+  try {
+    const sumFromFile = await calculator.sumFromFile('numbers.txt');
+    console.log('Sum from file:', sumFromFile);
+  } catch (error) {
+    console.error('Error reading from file:', error);
+  }
 
-  await Calculator.writeToFile('output.txt', sumFromFile);
-  console.log('Result written to output.txt');
+  try {
+    await Calculator.writeToFile('output.txt', 42);
+    console.log('Result written to output.txt');
+  } catch (error) {
+    console.error('Error writing to file:', error);
+  }
 }
 
 main();
