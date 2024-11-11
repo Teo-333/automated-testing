@@ -1,5 +1,6 @@
 import { Calculator } from './Calculator';
 
+//for manual testing or displaying
 async function main() {
   const calculator = new Calculator();
 
