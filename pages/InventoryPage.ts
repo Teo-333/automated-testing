@@ -6,7 +6,7 @@ export class InventoryPage {
   private cartBadge = '.shopping_cart_badge';
   private cartButton = '.shopping_cart_link';
   private menuButton = '#react-burger-menu-btn';
-  private burgerMenu = '#bm-menu';
+  private burgerMenu = '.bm-menu'; // Updated selector
   private logoutButton = '#logout_sidebar_link';
 
   constructor(page: Page) {
@@ -31,6 +31,7 @@ export class InventoryPage {
 
   async openMenu() {
     await this.page.click(this.menuButton);
+    await this.page.waitForSelector(this.burgerMenu, { state: 'visible', timeout: 5000 }); // Wait for menu to be visible
   }
 
   async isBurgerMenuVisible() {
