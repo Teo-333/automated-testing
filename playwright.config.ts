@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   projects: [
@@ -6,17 +6,18 @@ export default defineConfig({
       name: 'API',
       testDir: 'tests/api',
       use: {
-        baseURL: 'http://localhost:3000', 
+        baseURL: 'https://www.saucedemo.com/api', // Update if different
       },
     },
     {
       name: 'UI',
       testDir: 'tests/ui',
       use: {
-        headless: true,
-        viewport: { width: 1280, height: 720 },
+        browserName: 'chromium',
+        ...devices['Desktop Chrome'],
       },
     },
   ],
+  reporter: [['list'], ['html']],
   timeout: 30000,
 });
