@@ -6,7 +6,7 @@ export default defineConfig({
       name: 'API',
       testDir: 'tests/api',
       use: {
-        baseURL: 'https://www.saucedemo.com/api', // Update if different
+        baseURL: 'https://www.saucedemo.com/api',
       },
     },
     {
